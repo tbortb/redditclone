@@ -1,13 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css';
+import createStore from './Store';
+import { Provider } from 'react-redux';
+import { loadPosts } from './actions/Posts';
+import { loadComments } from './actions/Comments';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//Load initial data into store
+const store = createStore();
+store.dispatch(loadPosts());
+store.dispatch(loadComments());
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 

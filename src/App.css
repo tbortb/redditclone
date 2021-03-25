@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.valid {
+  border-color: yellowgreen;
+}
+
+.invalid{
+  border-color: red;
+}
+
+.clickable {
+  cursor: pointer;
+}
